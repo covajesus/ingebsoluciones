@@ -16,7 +16,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="/template/dist/css/adminlte.min.css">
   <!-- Custom style -->
-  <link rel="stylesheet" href="/template/dist/css/custom.css">
+  <link rel="stylesheet" href="/frontend/html/css/custom.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="/template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
