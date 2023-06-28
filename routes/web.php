@@ -7,9 +7,7 @@ use App\Http\Middleware\CheckRol;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\OrganizatorController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PdfController;
 use App\Http\Controllers\SecurityController;
-use App\Http\Controllers\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +20,9 @@ use App\Http\Controllers\ExcelController;
 |
 */
 
-Route::get('/', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+Route::get('/', function () {
+    return view('home');
+});
 
 Route::get('/user_id', function () {
     return response()->json(['user_id' => auth()->id()]);
@@ -34,24 +33,24 @@ Route::get('/session-data', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('account');
 });
      
 Route::middleware(['auth', 'checkrol:1'])->group(function () {
     Route::get('/branch_office', function () {
-        return view('home');
+        return view('account');
     });
 
     Route::get('/add_branch_office', function () {
-        return view('home');
+        return view('account');
     });
 
     Route::get('/cashier', function () {
-        return view('home');
+        return view('account');
     });
 
     Route::get('/collection', function () {
-        return view('home');
+        return view('account');
     });
     
     Route::get('/administrator', [AdministratorController::class, 'index']);

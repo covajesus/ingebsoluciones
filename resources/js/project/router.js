@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
+import Account from './components/Account.vue'
 import Home from './components/Home.vue'
 import BranchOffice from './components/BranchOffice.vue'
 import Cashier from './components/Cashier.vue'
@@ -13,7 +14,7 @@ const routes = [
     {
         name:'administrator',
         path:'/administrator',
-        component: Home
+        component: Account
     },
     {
         name:'collection',
@@ -21,8 +22,8 @@ const routes = [
         component: Collection
     },
     {
-        name:'home',
-        path:'/home',
+        name:'/a',
+        path:'/a',
         component: Home
     },
     {

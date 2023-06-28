@@ -19,13 +19,9 @@
   <link rel="stylesheet" href="/template/dist/css/custom.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="/template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Permanent+Marker&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: black;">
-  <div id="home">
+<body>
+  <div id="app">
     
   </div>
   
