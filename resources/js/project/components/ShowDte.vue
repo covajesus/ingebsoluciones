@@ -23,6 +23,15 @@
                                     <o-table-column field="id" label="Id" numeric v-slot="p">
                                         {{ p.row.id }}
                                     </o-table-column>
+                                    <o-table-column field="folio" label="Folio" numeric v-slot="p">
+                                        {{ p.row.folio }}
+                                    </o-table-column>
+                                    <o-table-column field="total" label="Total" numeric v-slot="p">
+                                        $ {{ formatPrice(p.row.total) }}
+                                    </o-table-column>
+                                    <o-table-column field="date" label="Fecha" numeric v-slot="p">
+                                        {{ formatDate(p.row.created_at) }}
+                                    </o-table-column>
                                 </o-table>
                                 <hr />
                                 <o-pagination
