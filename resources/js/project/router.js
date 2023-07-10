@@ -9,7 +9,7 @@ import AddCashier from './components/AddCashier.vue'
 import EditBranchOffice from './components/EditBranchOffice.vue'
 import EditCashier from './components/EditCashier.vue'
 import Collection from './components/Collection.vue'
-import Dte from './components/Dte.vue'
+import ShowDte from './components/ShowDte.vue'
 
 const routes = [
     {
@@ -18,9 +18,9 @@ const routes = [
         component: Account
     },
     {
-        name:'dte',
-        path:'/dte',
-        component: Dte
+        name:'show_dte',
+        path:'/dte/show/:branch_office_id/:cashier_id/:date',
+        component: ShowDte
     },
     {
         name:'collection',
