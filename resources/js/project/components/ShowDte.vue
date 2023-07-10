@@ -5,7 +5,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6 margin-left">
                         <h1>
-                            Recaudaciones
+                            Boletas
                         </h1>
                     </div>
                 </div>
@@ -22,26 +22,6 @@
                                 <o-table :loading="isLoading" :data="posts.current_page && posts.data.length == 0 ? [] : posts.data">
                                     <o-table-column field="id" label="Id" numeric v-slot="p">
                                         {{ p.row.id }}
-                                    </o-table-column>
-                                    <o-table-column field="branch_office" label="Sucursal" v-slot="p">
-                                        {{ p.row.branch_office }}
-                                    </o-table-column>
-                                    <o-table-column field="cashier" label="Caja" v-slot="p">
-                                        {{ p.row.cashier }}
-                                    </o-table-column>
-                                    <o-table-column field="cash_amount" label="Monto Bruto Efectivo" v-slot="p">
-                                        $ {{ formatPrice(p.row.cash_amount) }}
-                                    </o-table-column>
-                                    <o-table-column field="card_amount" label="Monto Bruto Tarjeta" v-slot="p">
-                                        $ {{ formatPrice(p.row.card_amount) }}
-                                    </o-table-column>
-                                    <o-table-column field="created_at" label="Fecha de Recaudación" v-slot="p">
-                                        {{ formatDate(p.row.created_at) }}
-                                    </o-table-column>
-                                    <o-table-column field="" label="" v-slot="p">
-                                        <router-link :to="`/collection/show/${p.row.id}`" class="btn btn-success mr-2">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </router-link>
                                     </o-table-column>
                                 </o-table>
                                 <hr />
@@ -85,7 +65,7 @@ export default {
         },
         listPage() {
             this.isLoading = true;
-            this.$axios.get('api/collection?page='+this.currentPage).then((res) => {
+            this.$axios.get('api/dte/' + this.$route.params.branch_office_id + '/' + this.$route.params.cashier_id + '/'+ this.$route.params.date +'?page='+this.currentPage).then((res) => {
                 this.posts = res.data.data;
                 this.isLoading = false;
             })

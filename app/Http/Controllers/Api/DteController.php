@@ -18,7 +18,14 @@ class DteController extends Controller
      */
     public function index()
     {
-        //
+        $dtes = Dte::from('dtes as c')
+        ->selectRaw('c.id')
+        ->paginate(10);
+
+        return response()->json([
+            'success' => true,
+            'data' => $dtes
+        ], 200);
     }
 
     /**
