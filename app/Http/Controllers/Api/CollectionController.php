@@ -17,7 +17,7 @@ class CollectionController extends Controller
     public function index()
     {
         $collections = Collection::from('collections as c')
-        ->selectRaw('c.id, branch_offices.branch_office, cashiers.cashier, c.cash_amount, c.card_amount, c.date')
+        ->selectRaw('c.id, branch_offices.branch_office, cashiers.cashier, c.cash_amount, c.card_amount, c.created_at')
         ->leftJoin('branch_offices', 'branch_offices.id', '=', 'c.branch_office_id')
         ->leftJoin('cashiers', 'cashiers.id', '=', 'c.cashier_id')
         ->paginate(10);
