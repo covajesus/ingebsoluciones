@@ -19,8 +19,6 @@ class DteController extends Controller
      */
     public function index()
     {
-        echo 1;
-        die();
         $branch_offices = BranchOffice::all();
 
         foreach($branch_offices as $branch_office) 
@@ -30,6 +28,7 @@ class DteController extends Controller
             $date = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
 
             foreach($cashiers as $cashier) {
+                echo $cashier->cashier_id;
                 $dtes = Dte::from('dtes as c')
                         ->selectRaw('SUM(c.cash_amount) as cash_amount, SUM(c.card_amount) as card_amount, COUNT(*) as quantity, DATE(c.created_at) as date')
                         ->groupBy(DB::raw('DATE(c.created_at)'))
