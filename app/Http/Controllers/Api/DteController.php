@@ -19,6 +19,8 @@ class DteController extends Controller
      */
     public function index()
     {
+        echo 1;
+        die();
         $branch_offices = BranchOffice::all();
 
         foreach($branch_offices as $branch_office) 
