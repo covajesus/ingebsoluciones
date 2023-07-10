@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.8",
         "phpoffice/phpexcel": "^1.8",
         "phpoffice/phpspreadsheet": "^1.28",
+        "sasco/libredte-sdk-php": "^1.1",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "tightenco/ziggy": "^1.0"
     },

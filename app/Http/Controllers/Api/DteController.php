@@ -18,27 +18,27 @@ class DteController extends Controller
      */
     public function index()
     {
-        $curl = curl_init();
+        $url = 'https://libredte.cl';
+        $hash = 'JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1';
+        $rut = 76063822;
+        $dte = 39;
+        $folio = 9172948;
+        $papelContinuo = 0; // =75 ó =80 para papel contínuo
+        $copias_tributarias = 1;
+        $copias_cedibles = 1;
+        $cedible = (int)(bool)$copias_cedibles; // =1 genera cedible, =0 no genera cedibleW
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://libredte.cl/api/dte/dte_emitidos/pdf/39/9172935/76063822-6?formato=general&papelContinuo=0&copias_tributarias=1&copias_cedibles=1&cedible=0&compress=0&base64=0',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer EAAFYECjSEkQBABTS8JJeDkzoZAZBL8BbNBS3oAA0ZAoZCGGRydpGFX1t7WgeHs1s9ZCNSt7x8OXYza8UQZBZBwowfkpXVzdryffZAvx4gScGnDvtjfxmlcfZCT8v1VxoAsJJgRvNZAthAWSxD4uuXhiKqpwzer6TxLYyCwaZCJ4vZAyTGq2sVimC2RcB',
-                'Content-Type: application/json'
-            )
-        ));
+        // crear cliente
+        $LibreDTE = new \sasco\LibreDTE\SDK\LibreDTE($hash, $url);
 
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        echo $response;
+        // descargar PDF
+        $opciones = '?papelContinuo='.$papelContinuo.'&copias_tributarias='.$copias_tributarias.'&copias_cedibles='.$copias_cedibles.'&cedible='.$cedible;
+        $pdf = $LibreDTE->get('/dte/dte_emitidos/pdf/'.$dte.'/'.$folio.'/'.$rut.$opciones);
+        if ($pdf['status']['code']!=200) {
+            die('Error al descargar el PDF del DTE emitido: '.$pdf['body']."\n");
+        }
+        
+        file_put_contents('005-dte_emitido_pdf.pdf', $pdf['body']);
     }
 
     /**
