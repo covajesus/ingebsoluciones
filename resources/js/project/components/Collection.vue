@@ -23,26 +23,23 @@
                                     <o-table-column field="id" label="Id" numeric v-slot="p">
                                         {{ p.row.id }}
                                     </o-table-column>
-                                    <o-table-column field="cashier" label="Sucursal" v-slot="p">
-                                        {{ p.row.cashier }}
+                                    <o-table-column field="branch_office" label="Sucursal" v-slot="p">
+                                        {{ p.row.branch_office }}
                                     </o-table-column>
                                     <o-table-column field="cashier" label="Caja" v-slot="p">
                                         {{ p.row.cashier }}
                                     </o-table-column>
-                                    <o-table-column field="cashier" label="Monto Bruto Efectivo" v-slot="p">
+                                    <o-table-column field="cash_amount" label="Monto Bruto Efectivo" v-slot="p">
                                         {{ p.row.cashier }}
                                     </o-table-column>
-                                    <o-table-column field="cashier" label="Monto Bruto Tarjeta" v-slot="p">
-                                        {{ p.row.cashier }}
+                                    <o-table-column field="card_amount" label="Monto Bruto Tarjeta" v-slot="p">
+                                        {{ p.row.card_amount }}
                                     </o-table-column>
-                                    <o-table-column field="cashier" label="Fecha de Recaudación" v-slot="p">
-                                        {{ p.row.cashier }}
-                                    </o-table-column>
-                                    <o-table-column field="cashier" label="Última Actualización" v-slot="p">
-                                        {{ p.row.cashier }}
+                                    <o-table-column field="date" label="Fecha de Recaudación" v-slot="p">
+                                        {{ p.row.date }}
                                     </o-table-column>
                                     <o-table-column field="" label="" v-slot="p">
-                                        <router-link :to="`/cashier/edit/${p.row.id}`" class="btn btn-success mr-2">
+                                        <router-link :to="`/collection/show/${p.row.id}`" class="btn btn-success mr-2">
                                             <i class="fa-solid fa-eye"></i>
                                         </router-link>
                                     </o-table-column>
@@ -86,7 +83,7 @@ export default {
         },
         listPage() {
             this.isLoading = true;
-            this.$axios.get('api/cashier?page='+this.currentPage).then((res) => {
+            this.$axios.get('api/collection?page='+this.currentPage).then((res) => {
                 this.posts = res.data.data;
                 this.isLoading = false;
             })
