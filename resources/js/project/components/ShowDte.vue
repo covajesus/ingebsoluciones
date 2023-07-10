@@ -65,7 +65,7 @@ export default {
         },
         listPage() {
             this.isLoading = true;
-            this.$axios.get('api/dte/show/' + this.$route.params.branch_office_id + '/' + this.$route.params.cashier_id + '/'+ this.$route.params.date +'?page='+this.currentPage).then((res) => {
+            this.$axios.get('/api/dte/show/' + this.$route.params.branch_office_id + '/' + this.$route.params.cashier_id + '/'+ this.$route.params.date +'?page='+this.currentPage).then((res) => {
                 this.posts = res.data.data;
                 this.isLoading = false;
             })
