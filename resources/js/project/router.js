@@ -9,12 +9,18 @@ import AddCashier from './components/AddCashier.vue'
 import EditBranchOffice from './components/EditBranchOffice.vue'
 import EditCashier from './components/EditCashier.vue'
 import Collection from './components/Collection.vue'
+import Dte from './components/Dte.vue'
 
 const routes = [
     {
         name:'administrator',
         path:'/administrator',
         component: Account
+    },
+    {
+        name:'dte',
+        path:'/dte',
+        component: Dte
     },
     {
         name:'collection',

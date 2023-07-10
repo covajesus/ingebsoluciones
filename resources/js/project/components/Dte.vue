@@ -39,7 +39,7 @@
                                         {{ formatDate(p.row.created_at) }}
                                     </o-table-column>
                                     <o-table-column field="" label="" v-slot="p">
-                                        <router-link :to="`/collection/show/${p.row.branch_office_id}/${p.row.cashier_id}`" class="btn btn-success mr-2">
+                                        <router-link :to="`/collection/show/${p.row.id}`" class="btn btn-success mr-2">
                                             <i class="fa-solid fa-eye"></i>
                                         </router-link>
                                     </o-table-column>
