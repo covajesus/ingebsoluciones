@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BranchOfficeController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\CashierController;
+use App\Http\Controllers\Api\DteController;
 
 /*
 |--------------------------------------------------------------------------
