@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Console\Commands;
-use App\BranchOffice;
-use App\Cashier;
-use App\Dte;
-use App\Collection;
+use App\Models\Dte;
+use App\Models\BranchOffice;
+use App\Models\Cashier;
+use App\Models\Collection;
 use Illuminate\Console\Command;
 use DB;
 use DateTime;
