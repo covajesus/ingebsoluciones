@@ -21,18 +21,18 @@ class DteController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://libredte.cl/api/dte/dte_emitidos/pdf/39/9172935/76063822-6?formato=general&papelContinuo=0&copias_tributarias=1&copias_cedibles=1&cedible=0&compress=0&base64=0',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'GET',
-        CURLOPT_HTTPHEADER => array(
-            'Content-Type: application/json',
-            'Authorization: JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1',
-        ),
+            CURLOPT_URL => 'https://libredte.cl/api/dte/dte_emitidos/pdf/39/9172935/76063822-6?formato=general&papelContinuo=0&copias_tributarias=1&copias_cedibles=1&cedible=0&compress=0&base64=0',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer EAAFYECjSEkQBABTS8JJeDkzoZAZBL8BbNBS3oAA0ZAoZCGGRydpGFX1t7WgeHs1s9ZCNSt7x8OXYza8UQZBZBwowfkpXVzdryffZAvx4gScGnDvtjfxmlcfZCT8v1VxoAsJJgRvNZAthAWSxD4uuXhiKqpwzer6TxLYyCwaZCJ4vZAyTGq2sVimC2RcB',
+                'Content-Type: application/json'
+            )
         ));
 
         $response = curl_exec($curl);
