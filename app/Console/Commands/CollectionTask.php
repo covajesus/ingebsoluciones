@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Console\Commands;
-
+use App\BranchOffice;
+use App\Cashier;
+use App\Dte;
+use App\Collection;
 use Illuminate\Console\Command;
+use DB;
+use DateTime;
 
 class CollectionTask extends Command
 {
