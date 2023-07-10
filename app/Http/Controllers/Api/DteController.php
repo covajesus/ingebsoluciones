@@ -77,7 +77,7 @@ class DteController extends Controller
     public function show()
     {
         $dtes = Dte::from('dtes as c')
-        ->selectRaw('c.id')
+        ->selectRaw('c.id, c.total, c.folio, c.created_at')
         ->paginate(10);
 
         return response()->json([
