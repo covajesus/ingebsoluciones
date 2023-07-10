@@ -16,7 +16,7 @@ class DteController extends Controller
      */
     public function index()
     {
-        //
+        echo 2;
     }
 
     /**
@@ -30,7 +30,7 @@ class DteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBranchOfficeRequest $request)
+    public function store(StoreDteRequest $request)
     {
         echo 1;
     }
