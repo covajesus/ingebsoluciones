@@ -18,14 +18,7 @@ class DteController extends Controller
      */
     public function index()
     {
-        $dtes = Dte::from('dtes as c')
-        ->selectRaw('c.id')
-        ->paginate(10);
-
-        return response()->json([
-            'success' => true,
-            'data' => $dtes
-        ], 200);
+        //
     }
 
     /**
@@ -81,9 +74,16 @@ class DteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BranchOffice $dte)
+    public function show()
     {
-        //
+        $dtes = Dte::from('dtes as c')
+        ->selectRaw('c.id')
+        ->paginate(10);
+
+        return response()->json([
+            'success' => true,
+            'data' => $dtes
+        ], 200);
     }
 
     /**
