@@ -33,9 +33,9 @@
                                         {{ formatDate(p.row.created_at) }}
                                     </o-table-column>
                                     <o-table-column field="" label="" v-slot="p">
-                                        <router-link :to="`/dte/download/${p.row.folio}`" class="btn btn-success mr-2">
+                                        <button class="btn btn-success mr-2" @click="downloadPDF(p.row.folio)">
                                             <i class="fa-solid fa-arrow-down"></i>
-                                        </router-link>
+                                        </button>
                                     </o-table-column>
                                 </o-table>
                                 <hr />
@@ -74,6 +74,22 @@ export default {
         }
     },
     methods: {
+        downloadPDF(folio) {
+            const url = `/api/dte/download/${folio}`;
+
+            fetch(url)
+                .then(response => response.blob())
+                .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', '005-dte_emitido_pdf.pdf');
+                link.click();
+                })
+                .catch(error => {
+                console.error('Error al descargar el PDF:', error);
+                });
+        },
         updatePage() {
             setTimeout(this.listPage, 200);
         },
