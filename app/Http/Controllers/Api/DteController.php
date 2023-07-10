@@ -18,32 +18,7 @@ class DteController extends Controller
      */
     public function index()
     {
-        $url = 'https://libredte.cl';
-        $hash = 'JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1';
-        $rut = 76063822;
-        $dte = 39;
-        $folio = 9172948;
-        $papelContinuo = 0; // =75 ó =80 para papel contínuo
-        $copias_tributarias = 1;
-        $copias_cedibles = 1;
-        $cedible = (int)(bool)$copias_cedibles; // =1 genera cedible, =0 no genera cedibleW
-
-        // crear cliente
-        $LibreDTE = new \sasco\LibreDTE\SDK\LibreDTE($hash, $url);
-
-        // descargar PDF
-        $opciones = '?papelContinuo='.$papelContinuo.'&copias_tributarias='.$copias_tributarias.'&copias_cedibles='.$copias_cedibles.'&cedible='.$cedible;
-        $pdf = $LibreDTE->get('/dte/dte_emitidos/pdf/'.$dte.'/'.$folio.'/'.$rut.$opciones);
-        if ($pdf['status']['code']!=200) {
-            die('Error al descargar el PDF del DTE emitido: '.$pdf['body']."\n");
-        }
-
-        $response = response($pdf['body'], 200, [
-            'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'attachment; filename="005-dte_emitido_pdf.pdf"'
-        ]);
-
-        return $response;
+        
     }
 
     /**
@@ -124,33 +99,32 @@ class DteController extends Controller
      */
     public function download(Request $id)
     {
-        $dte = Dte::from('dtes as c')
-        ->selectRaw('c.id, c.total, c.folio, c.created_at')
-        ->where('c.folio', '=', $id)
-        ->first();
+        $url = 'https://libredte.cl';
+        $hash = 'JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1';
+        $rut = 76063822;
+        $dte = 39;
+        $folio = $id;
+        $papelContinuo = 0; // =75 ó =80 para papel contínuo
+        $copias_tributarias = 1;
+        $copias_cedibles = 1;
+        $cedible = (int)(bool)$copias_cedibles; // =1 genera cedible, =0 no genera cedibleW
 
-        $curl = curl_init();
+        // crear cliente
+        $LibreDTE = new \sasco\LibreDTE\SDK\LibreDTE($hash, $url);
 
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://libredte.cl/api/dte/dte_emitidos/pdf/39/'.$id.'/76063822?formato=general&papelContinuo=0&copias_tributarias=1&copias_cedibles=1&cedible=0&compress=0&base64=0',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'GET',
-        CURLOPT_HTTPHEADER => array(
-            'Accept: application/json',
-            'Authorization: JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1',
-        ),
-        ));
+        // descargar PDF
+        $opciones = '?papelContinuo='.$papelContinuo.'&copias_tributarias='.$copias_tributarias.'&copias_cedibles='.$copias_cedibles.'&cedible='.$cedible;
+        $pdf = $LibreDTE->get('/dte/dte_emitidos/pdf/'.$dte.'/'.$folio.'/'.$rut.$opciones);
+        if ($pdf['status']['code']!=200) {
+            die('Error al descargar el PDF del DTE emitido: '.$pdf['body']."\n");
+        }
 
-        $response = curl_exec($curl);
+        $response = response($pdf['body'], 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'attachment; filename="005-dte_emitido_pdf.pdf"'
+        ]);
 
-        curl_close($curl);
-        echo $response;
-
+        return $response;
     }
 
     /**
