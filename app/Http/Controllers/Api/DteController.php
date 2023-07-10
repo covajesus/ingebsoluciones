@@ -32,7 +32,7 @@ class DteController extends Controller
      */
     public function store(StoreDteRequest $request)
     {
-        echo 1;
+        echo 333;
     }
 
     /**
