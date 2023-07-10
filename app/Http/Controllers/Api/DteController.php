@@ -16,7 +16,7 @@ class DteController extends Controller
      */
     public function index()
     {
-        echo 2;
+        //
     }
 
     /**
