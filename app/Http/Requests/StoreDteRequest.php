@@ -20,7 +20,6 @@ class StoreDteRequest extends FormRequest
             'branch_office_id' => ['required'],
             'cashier_id' => ['required'],
             'folio' => ['required'],
-            'dte_code' => ['required'],
             'cash_amount' => ['required'],
             'card_amount' => ['required'],
             'subtotal' => ['required'],

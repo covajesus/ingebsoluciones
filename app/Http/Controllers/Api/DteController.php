@@ -36,7 +36,6 @@ class DteController extends Controller
             'branch_office_id' => $request->branch_office_id,
             'cashier_id' => $request->cashier_id,
             'folio' => $request->folio,
-            'dte_code' => $request->dte_code,
             'cash_amount' => $request->cash_amount,
             'card_amount' => $request->card_amount,
             'subtotal' => $request->subtotal,

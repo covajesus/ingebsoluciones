@@ -13,7 +13,6 @@ class Dte extends Model
         'branch_office_id',
         'cashier_id',
         'folio',
-        'dte_code',
         'cash_amount',
         'card_amount',
         'subtotal',
