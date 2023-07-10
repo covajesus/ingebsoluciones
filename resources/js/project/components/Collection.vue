@@ -30,10 +30,10 @@
                                         {{ p.row.cashier }}
                                     </o-table-column>
                                     <o-table-column field="cash_amount" label="Monto Bruto Efectivo" v-slot="p">
-                                        {{ formatPrice(p.row.cash_amount) }}
+                                        $ {{ formatPrice(p.row.cash_amount) }}
                                     </o-table-column>
                                     <o-table-column field="card_amount" label="Monto Bruto Tarjeta" v-slot="p">
-                                        {{ formatPrice(p.row.card_amount) }}
+                                        $ {{ formatPrice(p.row.card_amount) }}
                                     </o-table-column>
                                     <o-table-column field="created_at" label="Fecha de Recaudación" v-slot="p">
                                         {{ formatDate(p.row.created_at) }}
@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
     data() {
         return {
