@@ -97,8 +97,10 @@ class DteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function download(Request $id)
+    public function download(Request $request)
     {
+        $id = $request->segment(3);
+        echo $id;
         $url = 'https://libredte.cl';
         $hash = 'JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1';
         $rut = 76063822;
