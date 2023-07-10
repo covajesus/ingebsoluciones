@@ -55,11 +55,12 @@ class DteController extends Controller
             'created_at' => $request->created_at,
             'updated_at' => $request->updated_at
         ]);
-
-        return response()->json([
-            'success' => true,
-            'data' => $dte
-        ], 200);
+        
+        if ($dte) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     /**
