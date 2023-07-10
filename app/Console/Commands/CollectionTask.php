@@ -31,27 +31,28 @@ class CollectionTask extends Command
     public function handle()
     {
         $branch_offices = BranchOffice::all();
-
+        
         foreach($branch_offices as $branch_office) 
         {
-            $cashiers = Cashier::where('branch_office_id', $branch_office->branch_office_id)->get();
+            $cashiers = Cashier::where('branch_office_id', $branch_office->id)->get();
 
             $date = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
 
             foreach($cashiers as $cashier) {
+                
                 $dtes = Dte::from('dtes as c')
                         ->selectRaw('SUM(c.cash_amount) as cash_amount, SUM(c.card_amount) as card_amount, COUNT(*) as quantity, DATE(c.created_at) as date')
                         ->groupBy(DB::raw('DATE(c.created_at)'))
                         ->whereDate('created_at', '>=', $date)
-                        ->where('c.branch_office_id', $branch_office->branch_office_id)
-                        ->where('c.cashier_id', $cashier->cashier_id)
+                        ->where('c.branch_office_id', $branch_office->id)
+                        ->where('c.cashier_id', $cashier->id)
                         ->get();
 
                 foreach($dtes as $dte) {
-                    $collection_qty = Collection::where('branch_office_id', $branch_office->branch_office_id)->where('cashier_id', $cashier->cashier_id)->whereRaw('DATE(created_at) = "'. $dte->date .'"')->count();
+                    $collection_qty = Collection::where('branch_office_id', $branch_office->id)->where('cashier_id', $cashier->id)->whereRaw('DATE(created_at) = "'. $dte->date .'"')->count();
 
                     if($collection_qty > 0) {
-                        $collection = Collection::where('branch_office_id', $branch_office->branch_office_id)->where('cashier_id', $cashier->cashier_id)->whereRaw('DATE(created_at) = "'. $dte->date .'"')->first();
+                        $collection = Collection::where('branch_office_id', $branch_office->id)->where('cashier_id', $cashier->id)->whereRaw('DATE(created_at) = "'. $dte->date .'"')->first();
                         $cash_amount = $collection->cash_amount;
                         $card_amount = $collection->card_amount;
                         $ticket_number = $collection->quantity;
@@ -75,8 +76,8 @@ class CollectionTask extends Command
                         $cash_amount = $collection->cash_amount;
                         $card_amount = $collection->card_amount;
                         $ticket_number = $collection->quantity;
-                        $collection->branch_office_id = $branch_office->branch_office_id;
-                        $collection->cashier_id = $cashier->cashier_id;
+                        $collection->branch_office_id = $branch_office->id;
+                        $collection->cashier_id = $cashier->id;
                         $collection->cash_amount = $dte->cash_amount;
                         $collection->card_amount = $dte->card_amount;
                         $collection->quantity = $dte->quantity;
