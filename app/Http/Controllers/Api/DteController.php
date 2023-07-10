@@ -24,6 +24,7 @@ class DteController extends Controller
         foreach($branch_offices as $branch_office) 
         {
             echo $branch_office->branch_office_id;
+            die();
             $cashiers = Cashier::where('branch_office_id', $branch_office->branch_office_id)->get();
 
             $date = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
