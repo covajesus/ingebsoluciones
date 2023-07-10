@@ -28,6 +28,8 @@ class Dte extends Model
         'ticket_correlative',
         'entrance_hour',
         'exit_hour',
-        'item_quantity'
+        'item_quantity',
+        'created_at',
+        'updated_at'
     ];
 }
