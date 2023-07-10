@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\BranchOfficeController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\CashierController;
 use App\Http\Controllers\Api\DteController;
+use App\Http\Controllers\Api\CollectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,5 @@ Route::resource('branch_office', BranchOfficeController::class)->except(['create
 Route::resource('user', UserController::class)->except(['create', 'edit']);
 Route::resource('cashier', CashierController::class)->except(['create']);
 Route::resource('dte', DteController::class);
+Route::resource('collection', CollectionController::class);
 Route::get('branch_office/all_data/get_select', 'App\Http\Controllers\Api\BranchOfficeController@get_select');
