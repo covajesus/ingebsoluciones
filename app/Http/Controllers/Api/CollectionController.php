@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Http\Requests\StoreDteRequest;
 
-class DteController extends Controller
+class CollectionController extends Controller
 {
     /**
      * Display a listing of the resource.
