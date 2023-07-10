@@ -30,13 +30,13 @@
                                         {{ p.row.cashier }}
                                     </o-table-column>
                                     <o-table-column field="cash_amount" label="Monto Bruto Efectivo" v-slot="p">
-                                        {{ p.row.cash_amount }}
+                                        {{ formatPrice(p.row.cash_amount) }}
                                     </o-table-column>
                                     <o-table-column field="card_amount" label="Monto Bruto Tarjeta" v-slot="p">
-                                        {{ p.row.card_amount }}
+                                        {{ formatPrice(p.row.card_amount) }}
                                     </o-table-column>
                                     <o-table-column field="created_at" label="Fecha de Recaudación" v-slot="p">
-                                        {{ p.row.created_at }}
+                                        {{ formatDate(p.row.created_at) }}
                                     </o-table-column>
                                     <o-table-column field="" label="" v-slot="p">
                                         <router-link :to="`/collection/show/${p.row.id}`" class="btn btn-success mr-2">
@@ -87,6 +87,13 @@ export default {
                 this.posts = res.data.data;
                 this.isLoading = false;
             })
+        },
+        formatPrice(value) {
+            let val = (value/1).toFixed(0).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        },
+        formatDate(value) {
+            return moment(value).format('DD-MM-YYYY');
         }
     },
     async mounted() {
