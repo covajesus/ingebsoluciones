@@ -32,7 +32,35 @@ class DteController extends Controller
      */
     public function store(StoreDteRequest $request)
     {
-        echo 333;
+        $dte = Dte::create([
+            'branch_office_id' => $request->branch_office_id,
+            'cashier_id' => $request->cashier_id,
+            'folio' => $request->folio,
+            'dte_code' => $request->dte_code,
+            'cash_amount' => $request->cash_amount,
+            'card_amount' => $request->card_amount,
+            'subtotal' => $request->subtotal,
+            'tax' => $request->tax,
+            'total' => $request->total,
+            'ticket_serial_number' => $request->ticket_serial_number,
+            'ticket_hour' => $request->ticket_hour,
+            'ticket_transaction_number' => $request->ticket_transaction_number,
+            'ticket_dispenser_number' => $request->ticket_dispenser_number,
+            'ticket_station_number' => $request->ticket_station_number,
+            'ticket_sa' => $request->ticket_sa,
+            'ticket_number' => $request->ticket_number,
+            'ticket_correlative' => $request->ticket_correlative,
+            'entrance_hour' => $request->entrance_hour,
+            'exit_hour' => $request->exit_hour,
+            'item_quantity' => $request->item_quantity,
+            'created_at' => $request->created_at,
+            'updated_at' => $request->updated_at
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'data' => $dte
+        ], 200);
     }
 
     /**
