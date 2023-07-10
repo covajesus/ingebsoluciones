@@ -37,8 +37,13 @@ class DteController extends Controller
         if ($pdf['status']['code']!=200) {
             die('Error al descargar el PDF del DTE emitido: '.$pdf['body']."\n");
         }
-        
-        file_put_contents('005-dte_emitido_pdf.pdf', $pdf['body']);
+
+        $response = response($pdf['body'], 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'attachment; filename="005-dte_emitido_pdf.pdf"'
+        ]);
+
+        return $response;
     }
 
     /**
