@@ -32,6 +32,11 @@
                                     <o-table-column field="date" label="Fecha" numeric v-slot="p">
                                         {{ formatDate(p.row.created_at) }}
                                     </o-table-column>
+                                    <o-table-column field="" label="" v-slot="p">
+                                        <router-link :to="`/dte/download/${p.row.folio}`" class="btn btn-success mr-2">
+                                            <i class="fa-solid fa-arrow-down"></i>
+                                        </router-link>
+                                    </o-table-column>
                                 </o-table>
                                 <hr />
                                 <o-pagination

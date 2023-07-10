@@ -18,7 +18,27 @@ class DteController extends Controller
      */
     public function index()
     {
-        //
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://libredte.cl/api/dte/dte_emitidos/pdf/39/9172935/76063822-6?formato=general&papelContinuo=0&copias_tributarias=1&copias_cedibles=1&cedible=0&compress=0&base64=0',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_HTTPHEADER => array(
+            'Content-Type: application/json',
+            'Authorization: JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1',
+        ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        echo $response;
     }
 
     /**
@@ -92,6 +112,40 @@ class DteController extends Controller
     public function edit(Dte $dte)
     {
         //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function download(Request $id)
+    {
+        $dte = Dte::from('dtes as c')
+        ->selectRaw('c.id, c.total, c.folio, c.created_at')
+        ->where('c.folio', '=', $id)
+        ->first();
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://libredte.cl/api/dte/dte_emitidos/pdf/39/'.$id.'/76063822?formato=general&papelContinuo=0&copias_tributarias=1&copias_cedibles=1&cedible=0&compress=0&base64=0',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_HTTPHEADER => array(
+            'Accept: application/json',
+            'Authorization: JXou3uyrc7sNnP2ewOCX38tWZ6BTm4D1',
+        ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        echo $response;
+
     }
 
     /**
