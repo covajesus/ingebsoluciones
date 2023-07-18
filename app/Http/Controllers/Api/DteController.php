@@ -22,6 +22,14 @@ class DteController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     */
+    public function index2()
+    {
+        
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
