@@ -12,7 +12,7 @@
                     <li class="nav-item">
                         <router-link to="/home" class="nav-link active" data-widget="pushmenu" @click="toggleSidebar">
                             <i class="nav-icon fas fa-home"></i>
-                            Inicio2
+                            Inicio
                         </router-link>
                     </li>
                     <li class="nav-item" v-if="rol_id == 1">

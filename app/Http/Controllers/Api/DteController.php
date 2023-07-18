@@ -103,7 +103,7 @@ class DteController extends Controller
 
         $url = 'https://libredte.cl';
         $hash = 'mIrjMMSoCs2sHmrK92SH4BsQifGbpZS9';
-        $rut = 76063822;
+        $rut = 77777612;
         $dte = 39;
         $folio = $id;
         $papelContinuo = 0; // =75 ó =80 para papel contínuo
