@@ -83,7 +83,7 @@ export default {
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.setAttribute('download', '005-dte_emitido_pdf.pdf');
+                link.setAttribute('download', 'dte_emitido_pdf.pdf');
                 link.click();
                 })
                 .catch(error => {

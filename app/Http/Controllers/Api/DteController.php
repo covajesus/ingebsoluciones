@@ -100,7 +100,6 @@ class DteController extends Controller
     public function download(Request $request)
     {
         $id = $request->segment(4);
-
         $url = 'https://libredte.cl';
         $hash = 'mIrjMMSoCs2sHmrK92SH4BsQifGbpZS9';
         $rut = 77777612;
