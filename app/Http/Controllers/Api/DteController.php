@@ -123,7 +123,7 @@ class DteController extends Controller
 
         $response = response($pdf['body'], 200, [
             'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'attachment; filename="005-dte_emitido_pdf.pdf"'
+            'Content-Disposition' => 'attachment; filename="dte_emitido_pdf.pdf"'
         ]);
 
         return $response;
