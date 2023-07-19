@@ -98,7 +98,13 @@ export default {
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         },
         formatDate(value) {
-            return moment(value).format('DD-MM-YYYY');
+            var value;
+
+            value.split(" ");
+            value = value[0];
+            value.split("-");
+            value = value[2] + "-" + value[1] + "-" + value[0];
+            return value;
         },
         formatLongDate(value) {
             return moment(value).format('DD-MM-YYYY HH:mm:ss');
