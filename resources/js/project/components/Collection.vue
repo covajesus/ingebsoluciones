@@ -110,10 +110,12 @@ export default {
             var value_1;
             var value_2;
             var value_3;
-            
+            var time;
+
             value_1 = value.split("T");
+            time = value_1[1].split(".");
             value_2 = value_1[0].split("-");
-            value_3 = value_2[2] + "-" + value_2[1] + "-" + value_2[0] + " " + value_1[1];
+            value_3 = value_2[2] + "-" + value_2[1] + "-" + value_2[0] + " " + time[0];
             return value_3;
         }
     },
