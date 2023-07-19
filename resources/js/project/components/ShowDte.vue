@@ -74,28 +74,24 @@ export default {
         }
     },
     methods: {
-        async downloadPdf(folio) {
-            const id = folio; // Reemplaza 123 con el ID del PDF que deseas descargar
-            try {
-                // Realizar la solicitud al backend para descargar el PDF
-                const response = await axios.get(`/api/descargar-pdf/${id}`, {
-                responseType: 'blob', // Para recibir la respuesta como un objeto Blob
-                });
-
-                // Crear una URL del blob y abrir el PDF en una nueva ventana/tab o descargarlo
-                const url = URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
-                const link = document.createElement('a');
-                link.href = url;
-                link.target = '_blank'; // Para abrir en una nueva ventana/tab
-                link.download = 'dte_emitido_pdf.pdf'; // Nombre de archivo para la descarga
-                link.click();
-
-                // Limpiar la URL creada
-                URL.revokeObjectURL(url);
-            } catch (error) {
-                console.error(error);
-                // Aquí puedes mostrar un mensaje de error si algo falla
-            }
+        forceFileDownload(response) {
+                const url = window.URL.createObjectURL(new Blob([response.data]))
+                const link = document.createElement('a')
+                link.href = url
+                link.setAttribute('download', 'dte.pdf')
+                document.body.appendChild(link)
+                link.click()
+        },
+        downloadPDF(id) {
+                axios({
+                    method: 'get',
+                    url: '/api/dte/download/'+id,
+                    responseType: 'arraybuffer',
+                })
+                .then((response) => {
+                    this.forceFileDownload(response)
+                })
+                .catch((e) => console.log(e))
         },
         updatePage() {
             setTimeout(this.listPage, 200);
