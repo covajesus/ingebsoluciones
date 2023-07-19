@@ -74,21 +74,24 @@ export default {
         }
     },
     methods: {
-        downloadPDF(folio) {
-            const url = `/api/dte/download/${folio}`;
-
-            fetch(url)
-                .then(response => response.blob())
-                .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', 'dte_emitido_pdf.pdf');
-                link.click();
-                })
-                .catch(error => {
-                console.error('Error al descargar el PDF:', error);
-                });
+        forceFileDownload(response) {
+            const url = window.URL.createObjectURL(new Blob([response.data]))
+            const link = document.createElement('a')
+            link.href = url
+            link.setAttribute('download', 'dte.pdf')
+            document.body.appendChild(link)
+            link.click()
+        },
+        downloadDte(id) {
+            axios({
+                method: 'get',
+                url: '/dte/download/'+id,
+                responseType: 'arraybuffer',
+            })
+            .then((response) => {
+                this.forceFileDownload(response)
+            })
+            .catch((e) => console.log(e))
         },
         updatePage() {
             setTimeout(this.listPage, 200);
