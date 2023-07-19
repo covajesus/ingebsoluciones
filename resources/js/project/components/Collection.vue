@@ -107,7 +107,13 @@ export default {
             return value;
         },
         formatLongDate(value) {
-            return moment(value).format('DD-MM-YYYY HH:mm:ss');
+            var value;
+            var extra_data;
+
+            value = value.split("-");
+            extra_data = value[2].split("T");
+            value = extra_data[0] + "-" + value[1] + "-" + value[0] + " " + extra_data[1];
+            return value;
         }
     },
     async mounted() {
