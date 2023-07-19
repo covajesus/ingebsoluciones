@@ -99,6 +99,7 @@ export default {
         },
         formatDate(value) {
             var value;
+            var day;
 
             value = value.split("-");
             day = value[2].split("T");
