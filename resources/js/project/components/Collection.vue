@@ -108,6 +108,7 @@ export default {
         },
         formatLongDate(value) {
             value = value.split("T");
+            console.log(value)
             value = value[2] + "-" + value[1] + "-" + value[0];
             return value[0];
         }
