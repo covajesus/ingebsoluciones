@@ -100,8 +100,7 @@ export default {
         formatDate(value) {
             var value;
 
-            value = value.split(" ");
-            alert(value)
+            value = value.split("T");
             value = value[0];
             value.split("-");
             value = value[2] + "-" + value[1] + "-" + value[0];
