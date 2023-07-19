@@ -107,11 +107,8 @@ export default {
             return value;
         },
         formatLongDate(value) {
-            var value;
-            var extra_data;
 
-            value = value.split("T");
-            return value[0];
+            return value;
         }
     },
     async mounted() {
