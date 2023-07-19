@@ -110,10 +110,8 @@ export default {
             var value;
             var extra_data;
 
-            value = value.split("-");
-            extra_data = value[2].split("T");
-            value = extra_data[0] + "-" + value[1] + "-" + value[0] + " " + extra_data[1];
-            return value;
+            value = value.split("T");
+            return value[0];
         }
     },
     async mounted() {
