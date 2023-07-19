@@ -101,6 +101,7 @@ export default {
             var value;
 
             value = value.split("-");
+            day = value[2].replace("T00:00:00.000000Z", "");
             value = value[2] + "-" + value[1] + "-" + value[0];
             return value;
         },
