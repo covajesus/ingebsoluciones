@@ -39,7 +39,7 @@
                                         {{ formatDate(p.row.created_at) }}
                                     </o-table-column>
                                     <o-table-column field="created_at" label="Última Actualización" v-slot="p">
-                                        {{ formatDate(p.row.updated_at) }}
+                                        {{ formatLongDate(p.row.updated_at) }}
                                     </o-table-column>
                                     <o-table-column field="" label="" v-slot="p">
                                         <router-link :to="`/dte/show/${p.row.branch_office_id}/${p.row.cashier_id}/${formatDate(p.row.created_at)}`" class="btn btn-success mr-2">
@@ -99,6 +99,9 @@ export default {
         },
         formatDate(value) {
             return moment(value).format('DD-MM-YYYY');
+        },
+        formatLongDate(value) {
+            return moment(value).format('DD-MM-YYYY HH:mm:ss');
         }
     },
     async mounted() {
