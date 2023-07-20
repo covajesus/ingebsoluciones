@@ -100,12 +100,11 @@ export default {
         formatDate(value) {
             var value_1;
             var value_2;
-            var value_3;
             var result;
 
-            value_2 = value_1.split("T");
-            value_3 = value_2[0].split("-");
-            result = value_3[0] + "-" + value_3[1] + "-" + value_3[0];
+            value_1 = value.split("T");
+            value_2 = value_1[0].split("-");
+            result = value_2[0] + "-" + value_2[1] + "-" + value_2[0];
             return result;
         },
         formatLongDate(value) {
