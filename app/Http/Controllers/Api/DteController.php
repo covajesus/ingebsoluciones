@@ -76,9 +76,9 @@ class DteController extends Controller
      */
     public function show(Request $request)
     {
-        $branch_office_id = $request->segment(3);
-        $cashier_id = $request->segment(4);
-        $date = $request->segment(5);
+        $branch_office_id = $request->segment(4);
+        $cashier_id = $request->segment(5);
+        $date = $request->segment(6);
 
         $dtes = Dte::from('des as c')
             ->selectRaw('c.id, c.total, c.folio, c.created_at')
