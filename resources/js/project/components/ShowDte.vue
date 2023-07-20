@@ -108,12 +108,11 @@ export default {
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         },
         formatDate(value) {
-            var value;
             var day;
 
-            value = value.split("-");
-            day = value[2].split("T");
-            value = day[0] + "-" + value[1] + "-" + value[0];
+            value = value.split("T");
+            value = value[0].split("-");
+            value = value[0] + "-" + value[1] + "-" + value[0];
             return value;
         }
     },

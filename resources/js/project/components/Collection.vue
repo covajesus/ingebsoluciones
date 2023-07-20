@@ -98,14 +98,12 @@ export default {
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         },
         formatDate(value) {
-            var value_1;
-            var value_2;
-            var result;
+            var day;
 
-            value_1 = value.split("T");
-            value_2 = value_1[0].split("-");
-            result = value_2[0] + "-" + value_2[1] + "-" + value_2[0];
-            return result;
+            value = value.split("T");
+            value = value[0].split("-");
+            value = value[0] + "-" + value[1] + "-" + value[0];
+            return value;
         },
         formatLongDate(value) {
             var value_1;
