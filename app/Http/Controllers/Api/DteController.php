@@ -80,11 +80,13 @@ class DteController extends Controller
         $cashier_id = $request->segment(4);
         $date = $request->segment(5);
 
+        $formattedDate = \DateTime::createFromFormat('d-m-Y', $date)->format('Y-m-d');
+
         $dtes = Dte::from('dtes as c')
             ->selectRaw('c.id, c.total, c.folio, c.created_at')
             ->where('c.branch_office_id', $branch_office_id)
             ->where('c.cashier_id', $cashier_id)
-            ->whereDate('c.created_at', $date) // Usamos whereDate para comparar solo la fecha sin la hora
+            ->whereDate('c.created_at', $formattedDate)
             ->paginate(10);
 
         return response()->json([
