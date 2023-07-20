@@ -108,7 +108,13 @@ export default {
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         },
         formatDate(value) {
-            return moment(value).format('DD-MM-YYYY');
+            var value;
+            var day;
+
+            value = value.split("-");
+            day = value[2].split("T");
+            value = day[0] + "-" + value[1] + "-" + value[0];
+            return value;
         }
     },
     async mounted() {
