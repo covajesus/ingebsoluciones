@@ -84,7 +84,7 @@ class DteController extends Controller
             ->selectRaw('c.id, c.total, c.folio, c.created_at')
             ->where('c.branch_office_id', $branch_office_id)
             ->where('c.cashier_id', $cashier_id)
-            ->whereDate("DATE_FORMAT(c.created_at, '%d-%m-%Y') = ?", $date)
+            ->whereRaw("DATE_FORMAT(c.created_at, '%d-%m-%Y') = ?", $date) // Utilizamos DATE_FORMAT en la condición del WHERE
             ->paginate(10);
 
         return response()->json([
