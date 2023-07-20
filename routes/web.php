@@ -52,6 +52,10 @@ Route::middleware(['auth', 'checkrol:1'])->group(function () {
     Route::get('/collection', function () {
         return view('account');
     });
+
+    Route::get('/dte/show/{branch_officeid_id}/{cashier_id}/{date}', function () {
+        return view('account');
+    });
     
     Route::get('/administrator', [AdministratorController::class, 'index']);
 });
