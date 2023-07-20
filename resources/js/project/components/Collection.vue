@@ -102,7 +102,7 @@ export default {
 
             value = value.split("T");
             value = value[0].split("-");
-            value = value[0] + "-" + value[1] + "-" + value[0];
+            value = value[2] + "-" + value[1] + "-" + value[0];
             return value;
         },
         formatLongDate(value) {
