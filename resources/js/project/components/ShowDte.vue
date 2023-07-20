@@ -30,7 +30,7 @@
                                         $ {{ formatPrice(p.row.total) }}
                                     </o-table-column>
                                     <o-table-column field="created_at" label="Fecha" numeric v-slot="p">
-                                        {{ p.row.created_at }}
+                                        {{ formatDate(p.row.created_at) }}
                                     </o-table-column>
                                     <o-table-column field="" label="" v-slot="p">
                                         <button class="btn btn-success mr-2" @click="downloadPDF(p.row.folio)">
