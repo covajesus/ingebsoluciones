@@ -83,7 +83,7 @@ class DteController extends Controller
         $dtes = Dte::from('dtes as c')
             ->selectRaw('c.id, c.total, c.folio, c.created_at')
             ->where('c.branch_office_id', $branch_office_id)
-            ->where('c.casier_id', $cashier_id)
+            ->where('c.cashier_id', $cashier_id)
             ->whereDate("DATE_FORMAT(c.created_at, '%d-%m-%Y') = ?", $date)
             ->paginate(10);
 
