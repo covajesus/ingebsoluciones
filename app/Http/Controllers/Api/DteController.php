@@ -80,7 +80,7 @@ class DteController extends Controller
         $cashier_id = $request->segment(5);
         $date = $request->segment(6);
 
-        $dtes = Dte::from('des as c')
+        $dtes = Dte::from('dtes as c')
             ->selectRaw('c.id, c.total, c.folio, c.created_at')
             ->where('c.branch_office_id', $branch_office_id)
             ->where('c.cashier_id', $cashier_id)
