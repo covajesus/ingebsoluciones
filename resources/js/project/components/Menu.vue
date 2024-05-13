@@ -23,7 +23,7 @@
                     </li>
                     <li class="nav-item" v-if="rol_id == 1">
                         <router-link to="/deposit" class="nav-link" data-widget="pushmenu" @click="toggleSidebar">
-                            <i class="nav-icon fas fa-money-bill"></i>
+                            <i class="nav-icon fas fa-piggy-bank"></i>
                             Depósitos
                         </router-link>
                     </li>
