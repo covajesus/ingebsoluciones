@@ -22,6 +22,12 @@
                         </router-link>
                     </li>
                     <li class="nav-item" v-if="rol_id == 1">
+                        <router-link to="/deposit" class="nav-link" data-widget="pushmenu" @click="toggleSidebar">
+                            <i class="nav-icon fas fa-money-bill"></i>
+                            Depósitos
+                        </router-link>
+                    </li>
+                    <li class="nav-item" v-if="rol_id == 1">
                         <router-link to="/branch_office" class="nav-link" data-widget="pushmenu" @click="toggleSidebar">
                             <i class="nav-icon fas fa-building"></i>
                             Sucursales

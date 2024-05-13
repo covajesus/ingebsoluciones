@@ -10,6 +10,7 @@ import EditBranchOffice from './components/EditBranchOffice.vue'
 import EditCashier from './components/EditCashier.vue'
 import Collection from './components/Collection.vue'
 import ShowDte from './components/ShowDte.vue'
+import Deposit from './components/Deposit.vue'
 
 const routes = [
     {
@@ -71,6 +72,11 @@ const routes = [
         name:'security',
         path:'/security',
         component: Home
+    },
+    {
+        name:'deposit',
+        path:'/deposit',
+        component: Deposit
     }
 ]
 
