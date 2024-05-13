@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 use DB;
 use DateTime;
 
-class CollectionTask extends Command
+class DteTask extends Command
 {
     /**
      * The name and signature of the console command.
