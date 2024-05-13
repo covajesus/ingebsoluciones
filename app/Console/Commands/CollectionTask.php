@@ -5,7 +5,6 @@ use App\Models\Dte;
 use App\Models\BranchOffice;
 use App\Models\Cashier;
 use App\Models\Collection;
-use Illuminate\Console\Command;
 use DB;
 use DateTime;
 
