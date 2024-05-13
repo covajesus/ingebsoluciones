@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('app:collection-task')->everyTenMinutes();
 
+        $schedule->command('app:dte-task')->everyTenMinutes();
+
         // $schedule->command('inspire')->hourly();
     }
 
