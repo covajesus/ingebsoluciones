@@ -10,7 +10,7 @@
                         <!-- SLIDE  -->
                         <li data-index="rs-1" data-transition="crossfade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/slide-img1.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="/frontend/images/slider1.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                            <img :src="`../../frontend/images/slider1.png`" alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
 
                             <!-- Overlay -->
@@ -37,7 +37,7 @@
                         <li data-index="rs-2" data-transition="crossfade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/slide-img2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
                             <!-- MAIN IMAGE -->
-                            <img src="/frontend/images/slider2.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"  data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <img :src="`../../frontend/images/slider2.png`" alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"  data-bgparallax="10" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
 
                             <!-- Overlay -->
@@ -127,7 +127,7 @@
                 <div class="row laptop text-center">
                     <div class="col-md-12">
                         <div class="laptop-img wow fadeInUp">
-                            <img src="/frontend/images/slider3.png" alt="laptop">
+                            <img :src="`../../frontend/images/slider3.png`" alt="laptop">
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                     <div class="col-md-6">
                         <!--Blog Image-->
                         <div class="blog-image wow hover-effect fadeInLeft">
-                            <img src="/frontend/images/slider4.png" alt="image">
+                            <img :src="`../../frontend/images/slider4.png`" alt="image">
                         </div>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                     <div class="col-md-6">
                         <!--Blog Image-->
                         <div class="blog-image text-right hover-effect wow fadeInRight">
-                            <img src="/frontend/images/slider5.png" alt="image">
+                            <img :src="`../../frontend/images/slider5.png`" alt="image">
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                     <div class="col-md-6">
                         <!--Blog Image-->
                         <div class="blog-image wow hover-effect fadeInLeft">
-                            <img src="/frontend/images/slider6.png" alt="image">
+                            <img :src="`../../frontend/images/slider6.png`" alt="image">
                         </div>
                     </div>
                 </div>
