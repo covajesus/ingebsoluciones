@@ -7,7 +7,6 @@ import axios from 'axios';
 import Oruga from '@oruga-ui/oruga-next'
 import '@oruga-ui/oruga-next/dist/oruga.css'
 import '@oruga-ui/oruga-next/dist/oruga-full.css'
-import QrReader from 'vue3-qr-reader';
 
 import "@mdi/font/css/materialdesignicons.min.css"
 

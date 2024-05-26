@@ -13,7 +13,11 @@ class DepositController extends Controller
      */
     public function index()
     {
-        $deposits = Deposit::orderBy('c.created_at', 'desc')->paginate(10);
+        $deposits = Deposit::from('deposits as c')
+        ->selectRaw('c.id, branch_offices.id as branch_office_id, cashiers.id as cashier_id, branch_offices.branch_office, cashiers.cashier, c.cash_amount, c.card_amount, c.created_at, c.updated_at')
+        ->leftJoin('branch_offices', 'branch_offices.id', '=', 'c.branch_office_id')
+        ->orderBy('c.created_at', 'desc')
+        ->paginate(10);
 
         return response()->json([
             'success' => true,

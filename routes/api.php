@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\CashierController;
 use App\Http\Controllers\Api\DteController;
 use App\Http\Controllers\Api\CollectionController;
+use App\Http\Controllers\Api\DepositController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::resource('user', UserController::class)->except(['create', 'edit']);
 Route::resource('cashier', CashierController::class)->except(['create']);
 Route::resource('dte', DteController::class);
 Route::resource('collection', CollectionController::class);
+Route::resource('deposit', DepositController::class);
 Route::get('branch_office/all_data/get_select', 'App\Http\Controllers\Api\BranchOfficeController@get_select');
 Route::get('dte/show/{branch_office_id}/{cashier_id}/{date}', 'App\Http\Controllers\Api\DteController@show');
 Route::get('dte/download/{folio}', 'App\Http\Controllers\Api\DteController@download');
+Route::post('message/send', 'App\Http\Controllers\Api\MessageController@send');

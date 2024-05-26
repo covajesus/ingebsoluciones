@@ -58,6 +58,10 @@ Route::middleware(['auth', 'checkrol:1'])->group(function () {
     });
     
     Route::get('/administrator', [AdministratorController::class, 'index']);
+
+    Route::get('/deposit', function () {
+        return view('account');
+    });
 });
 
 require __DIR__.'/auth.php';

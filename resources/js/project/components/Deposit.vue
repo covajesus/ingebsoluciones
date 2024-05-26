@@ -5,7 +5,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6 margin-left">
                         <h1>
-                            Recaudaciones
+                            Depósitos
                         </h1>
                     </div>
                 </div>
@@ -23,28 +23,17 @@
                                     <o-table-column field="id" label="Id" numeric v-slot="p">
                                         {{ p.row.id }}
                                     </o-table-column>
-                                    <o-table-column field="branch_office" label="Sucursal" v-slot="p">
+                                    <o-table-column field="collection_amount" label="Sucursal" v-slot="p">
                                         {{ p.row.branch_office }}
                                     </o-table-column>
-                                    <o-table-column field="cashier" label="Caja" v-slot="p">
+                                    <o-table-column field="deposit_amount" label="Caja" v-slot="p">
                                         {{ p.row.cashier }}
                                     </o-table-column>
-                                    <o-table-column field="cash_amount" label="Monto Bruto Efectivo" v-slot="p">
+                                    <o-table-column field="collection_date" label="Monto Bruto Efectivo" v-slot="p">
                                         $ {{ formatPrice(p.row.cash_amount) }}
                                     </o-table-column>
-                                    <o-table-column field="card_amount" label="Monto Bruto Tarjeta" v-slot="p">
+                                    <o-table-column field="deposit_date" label="Monto Bruto Tarjeta" v-slot="p">
                                         $ {{ formatPrice(p.row.card_amount) }}
-                                    </o-table-column>
-                                    <o-table-column field="created_at" label="Fecha de Recaudación" v-slot="p">
-                                        {{ formatDate(p.row.created_at) }}
-                                    </o-table-column>
-                                    <o-table-column field="created_at" label="Última Actualización" v-slot="p">
-                                        {{ formatLongDate(p.row.updated_at) }}
-                                    </o-table-column>
-                                    <o-table-column field="" label="" v-slot="p">
-                                        <router-link :to="`/dte/show/${p.row.branch_office_id}/${p.row.cashier_id}/${formatDate(p.row.created_at)}`" class="btn btn-success mr-2">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </router-link>
                                     </o-table-column>
                                 </o-table>
                                 <hr />
@@ -72,8 +61,6 @@
 </template>
 
 <script>
-import moment from 'moment'
-
 export default {
     data() {
         return {
@@ -88,7 +75,7 @@ export default {
         },
         listPage() {
             this.isLoading = true;
-            this.$axios.get('api/collection?page='+this.currentPage).then((res) => {
+            this.$axios.get('api/deposit?page='+this.currentPage).then((res) => {
                 this.posts = res.data.data;
                 this.isLoading = false;
             })
