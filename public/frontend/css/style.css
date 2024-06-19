@@ -3797,9 +3797,8 @@ ul.count_down.white li p:nth-child(2) {
         line-height: 1.5 !important;
     }
     .half-map {
-        height: 680px;}
-
-
+        height: 680px;
+    }
 }
 
 @media screen and (max-width: 991px) {
@@ -4152,7 +4151,7 @@ ul.count_down.white li p:nth-child(2) {
 }
 
 
-    @media screen and (max-width:576px){
+@media screen and (max-width:576px){
 
     .laptop-img{
         width: 400px;
@@ -4234,6 +4233,21 @@ ul.count_down.white li p:nth-child(2) {
         font-size: 1.5rem;
     }
 
+    .company-about {
+        font-size: 9px !important;
+    }
+
+    .side-footer > p.text-white {
+        font-size: 6px !important;
+    }
+
+    .tp-caption > h2 {
+        font-size: 14px !important;
+    }
+
+    .tp-caption > h2 > span {
+        font-size: 14px !important;
+    }
 }
 
 
